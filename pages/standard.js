@@ -28,10 +28,6 @@ const Standard = () => {
         >
             <>
                 <Header header={header} menu={menu} scrollToDonation={toDonation}/>
-                <StandardComponent standard={standard}/>
-                <CompositionStandard composition={compositionStandard} />
-                <StandardGoal goal={standardGoal}/>
-                <StandardDistribution distribution={distribution}/>
                 <Donation donation={donation} refDonation={donationRef} stats={stats}/>
                 <Footer footer={footer} menu={menu}/>
             </>
