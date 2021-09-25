@@ -1,0 +1,211 @@
+@import "colors";
+@mixin container {
+  padding: 0 6rem;
+  margin: 0 auto;
+  max-width: 1400px;
+  @include mediaMob {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@mixin select {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s color ease-in-out, 0.2s background ease-in-out, 0.3s box-shadow ease-in-out;
+  &_active {
+    font-weight: 500;
+    background: white;
+    color: $blue;
+  }
+}
+
+@mixin input {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  background: transparent;
+  padding: 0 1.5rem;
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  
+  
+  &_color {
+    &_white {
+      color: white;
+      box-shadow: 0 0 0 1px white inset;
+      transition: 0.3s box-shadow ease-in-out;
+      &::placeholder {
+        color: white;
+      }
+      &:enabled {
+        &:hover, &:focus {
+          box-shadow: 0 0 0 2px white inset;
+        }
+      }
+    }
+    &_select {
+      @include select;
+      text-align: center;
+      &::placeholder {
+        text-align: center;
+        color: white;
+      }
+      &_active {
+        &::placeholder {
+          color: $blue;
+        }
+      }
+    }
+  }
+  &:-webkit-autofill, &:-webkit-autofill:hover,  &:-webkit-autofill:focus {
+    -webkit-box-shadow:0 0 0 1px white inset, 0 0 0 50px #2D83E8 inset; /* можно изменить на любой вариант цвета */
+    -webkit-text-fill-color: white;
+    transition: none;
+    caret-color: white;
+  }
+}
+
+@mixin col2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 4rem;
+}
+
+@mixin col3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 4rem;
+}
+
+@mixin title-1 {
+  font-weight: 500;
+  font-size: 6rem;
+  line-height: 1.2;
+}
+
+@mixin title-2 {
+  font-weight: normal;
+  font-size: 3.6rem;
+  line-height: 130%;
+}
+
+@mixin title-3 {
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 110%;
+}
+
+@mixin title-4 {
+  font-weight: 500;
+  font-size: 3.6rem;
+  line-height: 120%;
+}
+
+@mixin title-5 {
+  font-weight: 500;
+  font-size: 4.8rem;
+  line-height: 110%;
+}
+
+@mixin text-36 {
+  font-size: 3.6rem;
+  line-height: 130%;
+}
+
+@mixin text-24 {
+  font-size: 2.4rem;
+  line-height: 1.3;
+}
+
+@mixin text-20 {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+@mixin text-16 {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+@mixin mediaMob {
+  @media (max-width: 1023px)  { @content; }
+}
+
+@mixin logo {
+  width: 13.887rem;
+  height: 2.963rem;
+  cursor: pointer;
+  position: relative;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 16.3rem;
+    height: 4.1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #FFFFFF;
+    border-radius: 0.3rem;
+    opacity: 0;
+    transition: 0.3s opacity ease-in-out;
+    pointer-events: none;
+  }
+  @include mediaMob {
+    width: 13.2rem;
+    height: 2.8rem;
+  }
+  a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+  &:focus {
+    opacity: 1;
+    &:after {
+      opacity: 1;
+    }
+  }
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+@mixin link-hovered {
+  color: inherit;
+  position: relative;
+  border-bottom: 1px solid;
+  transition: 0.3s border ease-in-out;
+  text-decoration: none;
+  &:hover {
+    border-bottom: 1px solid $blue;
+  }
+  &:focus, &:focus-visible {
+    outline: none;
+    border: 1px solid
+  }
+}
+
+
+
+

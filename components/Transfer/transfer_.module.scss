@@ -1,0 +1,15 @@
+@import "scss/mixins";
+.transfer {
+  @include container;
+  padding-top: 5rem;
+}
+
+.name {
+  @include title-3;
+  margin: 3rem 0 1.5rem;
+}
+
+.code {
+  padding: 4rem;
+  background: white;
+}

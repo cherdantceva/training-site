@@ -1,0 +1,89 @@
+.check {
+  cursor: pointer;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  &:after {
+    position: absolute;
+    content: '';
+    width: calc(100% + 1rem);
+    left: -1rem;
+    height: calc(100% + 2rem);
+    top: -1rem;
+    border: 1px solid #FFFFFF;
+    border-radius: 3px;
+    opacity: 0;
+    transition: 0.3s opacity ease-in-out;
+    pointer-events: none;
+
+  }
+  &:focus, &:focus-visible, &:focus-within{
+    outline: none;
+    .label:before {
+      opacity: 1;
+    }
+  }
+
+}
+.input {
+  display: none;
+}
+
+.label {
+  position: relative;
+  padding-left: 2.8rem;
+  cursor: pointer;
+  transition: 0.3s color ease-in-out;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 0 1px white inset;
+    border-radius: 2px;
+    height: 1.8rem;
+    width: 1.8rem;
+    z-index: 2;
+    transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    left: -0.6rem;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 0.5rem;
+    transform: translateY(-50%);
+    height: 3rem;
+    width: 3rem;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.3s opacity ease-in-out;
+  }
+  &:hover {
+    &:after {
+      box-shadow: 0 0 0 2px white inset;
+    }
+    color: rgba(white, 0.6);
+  }
+
+  .input:checked + &:after {
+    box-shadow: 0 0 0 2px white inset;
+    background: url("../../../public/media/check.svg") no-repeat 0.4rem center;
+    background-size: 1.1rem 0.7rem;
+  }
+
+  &_color {
+    &_white {
+      color: white;
+    }
+  }
+}
+
+
+
+
+
+
+
+
